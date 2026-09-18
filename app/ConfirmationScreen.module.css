@@ -1,0 +1,1057 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+
+  background: #f8f4ec;
+  color: #11100e;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* =========================
+   APPROVED BANNER
+========================= */
+
+.banner {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+
+  object-fit: contain;
+
+  background: #ffffff;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.content {
+  width: min(
+    1180px,
+    calc(100% - 60px)
+  );
+
+  margin: 0 auto;
+
+  padding:
+    30px
+    0
+    45px;
+}
+
+
+/* =========================
+   MAIN CARDS
+========================= */
+
+.cardsGrid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.55fr)
+    minmax(320px, 0.85fr);
+
+  gap: 20px;
+
+  align-items: stretch;
+}
+
+.detailsCard,
+.confirmationCard {
+  border:
+    1px solid
+    #c4933f;
+
+  border-radius: 14px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.94
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(
+      44,
+      34,
+      18,
+      0.06
+    );
+}
+
+
+/* =========================
+   DETAILS CARD
+========================= */
+
+.detailsCard {
+  padding: 25px;
+}
+
+.sectionTitle {
+  color: #111111;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   APPOINTMENT
+========================= */
+
+.appointmentBody {
+  display: grid;
+
+  grid-template-columns:
+    185px
+    minmax(0, 1fr);
+
+  gap: 25px;
+
+  margin-top: 14px;
+}
+
+.lashPhoto {
+  display: block;
+
+  width: 185px;
+  height: 175px;
+
+  border-radius: 7px;
+
+  object-fit: cover;
+}
+
+.appointmentInfo {
+  display: flex;
+
+  min-width: 0;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.lookHeading {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 5px;
+}
+
+.lookHeading strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+  font-weight: 600;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+.lookHeading span {
+  margin-top: 5px;
+
+  color: #69625a;
+
+  font-size: 9px;
+
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+.detailRow {
+  display: grid;
+
+  grid-template-columns:
+    27px
+    minmax(0, 1fr);
+
+  gap: 8px;
+
+  align-items: center;
+
+  color: #24211d;
+
+  font-size: 13px;
+}
+
+.detailIcon {
+  color: #b98229;
+
+  font-size: 19px;
+
+  text-align: center;
+}
+
+.locationNote {
+  max-width: 430px;
+
+  margin:
+    0
+    0
+    0
+    35px;
+
+  color: #746c63;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+.kitAdded {
+  width: fit-content;
+
+  margin:
+    3px
+    0
+    0
+    35px;
+
+  padding:
+    6px
+    10px;
+
+  border:
+    1px solid
+    #d5b16f;
+
+  border-radius: 20px;
+
+  background: #fbf5e9;
+
+  color: #765219;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+  width: 100%;
+  height: 1px;
+
+  margin:
+    25px
+    0
+    19px;
+
+  background: #ddc69c;
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+.paymentRows {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: 12px;
+}
+
+.paymentRow {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  min-height: 43px;
+
+  border-bottom:
+    1px solid
+    #eee5d5;
+
+  color: #22201d;
+
+  font-size: 13px;
+}
+
+.paymentRow > span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.paymentIcon {
+  color: #111111;
+
+  font-size: 16px;
+}
+
+.paymentRow strong {
+  white-space: nowrap;
+
+  font-size: 13px;
+}
+
+.totalRow {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 15px;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   CONFIRMATION CARD
+========================= */
+
+.confirmationCard {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding:
+    31px
+    27px
+    25px;
+
+  text-align: center;
+}
+
+.checkCircle {
+  display: grid;
+
+  width: 88px;
+  height: 88px;
+
+  place-items: center;
+
+  margin-bottom: 19px;
+
+  border:
+    3px solid
+    #c5943d;
+
+  border-radius: 50%;
+
+  color: #b77e24;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 49px;
+  font-weight: 400;
+}
+
+.confirmationCard h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #111111;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  letter-spacing: 0.075em;
+
+  text-transform: uppercase;
+}
+
+.confirmationCopy {
+  max-width: 300px;
+
+  margin:
+    0
+    auto
+    20px;
+
+  color: #292622;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   CONTACT DETAILS
+========================= */
+
+.contactList {
+  display: flex;
+
+  width: 100%;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  text-align: left;
+}
+
+.contactRow {
+  display: grid;
+
+  grid-template-columns:
+    35px
+    minmax(0, 1fr);
+
+  gap: 7px;
+
+  align-items: center;
+
+  color: #24211e;
+
+  font-size: 13px;
+
+  word-break: break-word;
+}
+
+.contactIcon {
+  font-size: 21px;
+
+  text-align: center;
+}
+
+.goldDivider {
+  width: 100%;
+  height: 1px;
+
+  margin:
+    22px
+    0;
+
+  background: #b8842d;
+}
+
+
+/* =========================
+   CALENDAR BUTTON
+========================= */
+
+.calendarButton {
+  display: grid;
+
+  width: 100%;
+  min-height: 59px;
+
+  grid-template-columns:
+    35px
+    minmax(0, 1fr)
+    25px;
+
+  align-items: center;
+
+  padding:
+    0
+    17px;
+
+  border:
+    1px solid
+    #171717;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.calendarButton > span:nth-child(2) {
+  font-size: 13px;
+
+  letter-spacing: 0.04em;
+
+  text-align: left;
+
+  text-transform: uppercase;
+}
+
+.calendarIcon {
+  font-size: 18px;
+}
+
+.calendarArrow {
+  font-size: 17px;
+
+  text-align: right;
+}
+
+
+/* =========================
+   THREE INFO ITEMS
+========================= */
+
+.infoGrid {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1px
+    1fr
+    1px
+    1fr;
+
+  gap: 28px;
+
+  align-items: center;
+
+  padding:
+    38px
+    25px
+    26px;
+}
+
+.infoItem {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+}
+
+.infoIcon {
+  display: grid;
+
+  width: 72px;
+  height: 72px;
+
+  place-items: center;
+
+  margin-bottom: 14px;
+
+  border:
+    2px solid
+    #b77e22;
+
+  border-radius: 50%;
+
+  color: #171512;
+
+  font-size: 30px;
+}
+
+.infoItem h3 {
+  margin:
+    0
+    0
+    7px;
+
+  color: #171512;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+.infoItem p {
+  max-width: 250px;
+
+  margin: 0;
+
+  color: #292621;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+.verticalDivider {
+  width: 1px;
+  height: 115px;
+
+  background: #bd8831;
+}
+
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.homeButton {
+  display: flex;
+
+  width:
+    min(
+      510px,
+      90%
+    );
+
+  min-height: 67px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  margin:
+    6px
+    auto
+    0;
+
+  border:
+    2px solid
+    #c89a4a;
+
+  border-radius: 40px;
+
+  background: #052f27;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 6px 16px
+    rgba(
+      0,
+      0,
+      0,
+      0.09
+    );
+
+  font-family: inherit;
+
+  font-size: 18px;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.homeButton:hover {
+  background: #073b31;
+}
+
+.homeArrow {
+  font-size: 29px;
+  font-weight: 300;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1px
+    1fr
+    1px
+    1fr
+    1px
+    1fr;
+
+  align-items: center;
+
+  min-height: 125px;
+
+  padding:
+    20px
+    max(
+      35px,
+      calc(
+        (100% - 1120px) / 2
+      )
+    );
+
+  background: #042d26;
+
+  color: #ffffff;
+}
+
+.footerItem {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+}
+
+.footerIcon {
+  display: grid;
+
+  width: 54px;
+  height: 54px;
+
+  flex:
+    0
+    0
+    54px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    #d0a04d;
+
+  border-radius: 50%;
+
+  color: #d0a04d;
+
+  font-size: 25px;
+}
+
+.footerItem > span {
+  font-size: 10px;
+
+  line-height: 1.45;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+}
+
+.footerDivider {
+  width: 1px;
+  height: 52px;
+
+  background:
+    rgba(
+      210,
+      161,
+      77,
+      0.65
+    );
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .content {
+    width:
+      calc(
+        100% - 34px
+      );
+  }
+
+  .cardsGrid {
+    grid-template-columns:
+      minmax(0, 1.3fr)
+      minmax(280px, 0.8fr);
+  }
+
+  .appointmentBody {
+    grid-template-columns:
+      145px
+      minmax(0, 1fr);
+
+    gap: 18px;
+  }
+
+  .lashPhoto {
+    width: 145px;
+    height: 150px;
+  }
+
+  .lookHeading strong {
+    font-size: 25px;
+  }
+
+  .footer {
+    padding:
+      20px;
+  }
+
+  .footerIcon {
+    width: 45px;
+    height: 45px;
+
+    flex-basis: 45px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 680px) {
+
+  .banner {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  .content {
+    width:
+      calc(
+        100% - 24px
+      );
+
+    padding:
+      15px
+      0
+      28px;
+  }
+
+
+  /* CARDS */
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .detailsCard {
+    padding: 17px;
+  }
+
+  .sectionTitle {
+    font-size: 12px;
+  }
+
+
+  /* APPOINTMENT */
+
+  .appointmentBody {
+    grid-template-columns:
+      108px
+      minmax(0, 1fr);
+
+    gap: 13px;
+
+    margin-top: 12px;
+  }
+
+  .lashPhoto {
+    width: 108px;
+    height: 122px;
+  }
+
+  .lookHeading strong {
+    font-size: 20px;
+  }
+
+  .lookHeading span {
+    font-size: 7px;
+  }
+
+  .appointmentInfo {
+    gap: 7px;
+  }
+
+  .detailRow {
+    grid-template-columns:
+      21px
+      minmax(0, 1fr);
+
+    gap: 5px;
+
+    font-size: 10px;
+  }
+
+  .detailIcon {
+    font-size: 14px;
+  }
+
+  .locationNote {
+    margin-left: 26px;
+
+    font-size: 8px;
+  }
+
+  .kitAdded {
+    margin-left: 26px;
+
+    font-size: 7px;
+  }
+
+
+  /* PAYMENT */
+
+  .paymentRow {
+    font-size: 10px;
+  }
+
+  .paymentRow strong {
+    font-size: 10px;
+  }
+
+  .totalRow {
+    font-size: 12px;
+  }
+
+
+  /* CONFIRMATION CARD */
+
+  .confirmationCard {
+    padding:
+      24px
+      20px;
+  }
+
+  .checkCircle {
+    width: 68px;
+    height: 68px;
+
+    font-size: 38px;
+  }
+
+  .confirmationCard h2 {
+    font-size: 15px;
+  }
+
+  .confirmationCopy,
+  .contactRow {
+    font-size: 11px;
+  }
+
+
+  /* INFO */
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    padding:
+      30px
+      15px
+      25px;
+  }
+
+  .verticalDivider {
+    width: 60%;
+    height: 1px;
+
+    margin:
+      0
+      auto;
+  }
+
+  .infoIcon {
+    width: 61px;
+    height: 61px;
+
+    font-size: 25px;
+  }
+
+  .infoItem h3 {
+    font-size: 12px;
+  }
+
+  .infoItem p {
+    font-size: 10px;
+  }
+
+
+  /* HOME */
+
+  .homeButton {
+    min-height: 58px;
+
+    font-size: 14px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 20px;
+
+    min-height: auto;
+
+    padding:
+      24px
+      18px;
+  }
+
+  .footerDivider {
+    display: none;
+  }
+
+  .footerItem {
+    justify-content: flex-start;
+  }
+
+  .footerIcon {
+    width: 45px;
+    height: 45px;
+
+    flex-basis: 45px;
+
+    font-size: 20px;
+  }
+
+  .footerItem > span {
+    font-size: 8px;
+  }
+}

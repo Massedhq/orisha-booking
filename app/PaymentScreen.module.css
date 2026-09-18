@@ -1,0 +1,1183 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+
+  background: #ffffff;
+  color: #111111;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+
+  object-fit: contain;
+
+  background: #ffffff;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  width: min(940px, calc(100% - 30px));
+
+  margin: 0 auto;
+
+  padding: 24px 0 38px;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.locationSection {
+  margin-bottom: 13px;
+
+  padding: 16px 20px;
+
+  border: 1px solid #d8ad66;
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sectionHeading p {
+  margin: 4px 0 12px;
+
+  color: #4e5965;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.locationGrid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.locationCard {
+  display: grid;
+
+  grid-template-columns:
+    24px
+    50px
+    1fr;
+
+  gap: 11px;
+
+  align-items: center;
+
+  min-height: 84px;
+
+  padding: 11px 14px;
+
+  border: 1px solid #d7dce1;
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.locationSelected {
+  border-color: #c9933d;
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(201, 147, 61, 0.18);
+}
+
+.radio {
+  position: relative;
+
+  display: block;
+
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid #111111;
+  border-radius: 50%;
+}
+
+.locationSelected .radio {
+  border-color: #06382c;
+}
+
+.locationSelected .radio span {
+  position: absolute;
+
+  inset: 3px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #06382c;
+}
+
+.locationIcon {
+  display: grid;
+
+  width: 44px;
+  height: 44px;
+
+  place-items: center;
+
+  border: 1px solid #e2ba75;
+  border-radius: 50%;
+
+  background: #fff9ee;
+
+  color: #111111;
+
+  font-size: 21px;
+}
+
+.locationCopy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.locationCopy strong {
+  font-size: 13px;
+
+  letter-spacing: 0.02em;
+
+  text-transform: uppercase;
+}
+
+.locationCopy small {
+  color: #4d5865;
+
+  font-size: 10px;
+
+  line-height: 1.35;
+}
+
+
+/* =========================
+   LASH KIT
+========================= */
+
+.lashKit {
+  display: grid;
+
+  grid-template-columns:
+    28px
+    1fr
+    auto;
+
+  gap: 12px;
+
+  align-items: center;
+
+  margin-bottom: 13px;
+
+  padding: 14px 18px;
+
+  border: 1px solid #d8ad66;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+}
+
+.lashKit > input {
+  width: 21px;
+  height: 21px;
+
+  margin: 0;
+
+  accent-color: #06382c;
+}
+
+.lashKitCopy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.lashKitCopy strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+}
+
+.lashKitCopy small {
+  color: #5d6670;
+
+  font-size: 10px;
+}
+
+.lashKitPrice {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   PAYMENT METHODS
+========================= */
+
+.paymentMethodSection {
+  margin-bottom: 13px;
+
+  padding: 14px 18px 17px;
+
+  border: 1px solid #d8ad66;
+  border-radius: 9px;
+
+  background: #ffffff;
+}
+
+.paymentHeading {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 10px;
+}
+
+.paymentHeading h2 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.paymentHeading > span {
+  color: #4e5863;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+.paymentMethods {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 8px;
+}
+
+.paymentMethods button {
+  min-height: 77px;
+
+  padding: 8px;
+
+  border: 1px solid #d8dde2;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  cursor: pointer;
+}
+
+.paymentMethods button:hover {
+  border-color: #d2a04f;
+}
+
+.paymentMethods button.paymentSelected {
+  border-color: #d29635;
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(210, 150, 53, 0.2);
+}
+
+.paymentMethods button > strong {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.cardIcon {
+  position: relative;
+
+  display: block;
+
+  width: 32px;
+  height: 22px;
+
+  margin: 0 auto 8px;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  background: #111111;
+}
+
+.cardStripe {
+  position: absolute;
+
+  top: 5px;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background: #d4a24f;
+}
+
+.cardIcon::after {
+  content: "";
+
+  position: absolute;
+
+  right: 5px;
+  bottom: 4px;
+
+  width: 8px;
+  height: 3px;
+
+  border-radius: 1px;
+
+  background: #ffffff;
+}
+
+
+/* =========================
+   APPLE PAY
+========================= */
+
+.applePayBadge {
+  display: flex;
+
+  width: max-content;
+  min-width: 68px;
+  height: 28px;
+
+  margin: 0 auto 7px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  padding: 0 8px;
+
+  border-radius: 5px;
+
+  background: #000000;
+
+  color: #ffffff;
+
+  line-height: 1;
+}
+
+.appleWord {
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+.payWord {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   GOOGLE
+========================= */
+
+.googleIcon {
+  display: grid;
+
+  width: 34px;
+  height: 29px;
+
+  margin: 0 auto 5px;
+
+  place-items: center;
+
+  color: #4285f4;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   CASH APP
+========================= */
+
+.cashAppIcon {
+  display: grid;
+
+  width: 34px;
+  height: 29px;
+
+  margin: 0 auto 5px;
+
+  place-items: center;
+
+  border-radius: 6px;
+
+  background: #00c244;
+
+  color: #ffffff;
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.formSection {
+  margin-bottom: 13px;
+
+  padding: 15px 18px 17px;
+
+  border: 1px solid #e0e3e6;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 16px
+    rgba(0, 0, 0, 0.035);
+}
+
+.formSection h2 {
+  margin: 0 0 11px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.formSection label {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.formSection label > span {
+  color: #30363d;
+
+  font-size: 9px;
+}
+
+.formSection input,
+.formSection select {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 48px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #d7dce1;
+  border-radius: 6px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  font: inherit;
+
+  font-size: 11px;
+}
+
+.formSection input::placeholder {
+  color: #a1a8b1;
+}
+
+.formSection input:focus,
+.formSection select:focus {
+  border-color: #c9933d;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(201, 147, 61, 0.08);
+}
+
+.cardInformationRow {
+  display: grid;
+
+  grid-template-columns:
+    2fr
+    0.9fr
+    0.85fr;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.fullField {
+  width: 100%;
+}
+
+.addressTopRow {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.addressBottomRow {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    0.9fr;
+
+  gap: 10px;
+}
+
+
+/* =========================
+   WALLET
+========================= */
+
+.walletSection {
+  margin-bottom: 13px;
+
+  padding: 27px 18px;
+
+  border: 1px solid #e0e3e6;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  text-align: center;
+}
+
+.walletBrand {
+  margin-bottom: 8px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.walletSection p {
+  max-width: 520px;
+
+  margin: 0 auto;
+
+  color: #5b6570;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   ORDER TOTAL
+========================= */
+
+.orderTotal {
+  margin-bottom: 15px;
+
+  padding: 18px 20px;
+
+  border: 1px solid #d8ad66;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fffdf9 100%
+    );
+}
+
+.totalHeading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 15px;
+}
+
+.totalHeading > div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.totalHeading span {
+  color: #77716a;
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.totalHeading h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.bigTotal {
+  color: #111111;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.totalLines {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.totalLines > div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #525b64;
+
+  font-size: 11px;
+}
+
+.totalLines strong {
+  color: #111111;
+
+  font-weight: 500;
+}
+
+.totalDivider {
+  height: 1px;
+
+  margin: 14px 0 12px;
+
+  background: #e5d5b9;
+}
+
+.totalFinal {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.totalFinal span {
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.totalFinal strong {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 20px;
+}
+
+
+/* =========================
+   AGREEMENT
+========================= */
+
+.agreement {
+  display: grid;
+
+  grid-template-columns:
+    28px
+    1fr;
+
+  gap: 10px;
+
+  align-items: flex-start;
+
+  margin: 18px 6px;
+}
+
+.agreement > input {
+  width: 21px;
+  height: 21px;
+
+  margin: 0;
+
+  accent-color: #06382c;
+}
+
+.agreement > span {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.agreement strong {
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+.agreement b {
+  color: #bd2424;
+}
+
+.agreement small {
+  color: #68717a;
+
+  font-size: 9px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.actions {
+  display: grid;
+
+  grid-template-columns:
+    160px
+    1fr;
+
+  gap: 14px;
+
+  align-items: stretch;
+}
+
+.backButton,
+.payButton {
+  min-height: 55px;
+
+  border-radius: 7px;
+
+  font: inherit;
+
+  cursor: pointer;
+}
+
+.backButton {
+  border: 1px solid #d8dadd;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  font-size: 14px;
+}
+
+.backButton > span {
+  margin-left: 8px;
+}
+
+.payButton {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #111111;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+.payButtonText {
+  color: #ffffff;
+}
+
+.payArrow {
+  color: #d6a552;
+
+  font-size: 20px;
+}
+
+.payButton:disabled {
+  opacity: 0.38;
+
+  cursor: not-allowed;
+}
+
+.secureMessage {
+  margin-top: 11px;
+
+  color: #747b82;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 680px) {
+
+  .content {
+    width: calc(100% - 24px);
+
+    padding-top: 15px;
+  }
+
+  .locationSection,
+  .paymentMethodSection,
+  .formSection,
+  .orderTotal {
+    padding: 13px;
+  }
+
+  .locationGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .locationCard {
+    grid-template-columns:
+      22px
+      45px
+      1fr;
+  }
+
+  .paymentMethods {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+  .paymentMethods button {
+    min-height: 74px;
+  }
+
+  .cardInformationRow,
+  .addressTopRow,
+  .addressBottomRow {
+    grid-template-columns: 1fr;
+  }
+
+  .lashKit {
+    padding: 13px;
+  }
+
+  .lashKitCopy strong {
+    font-size: 14px;
+  }
+
+  .lashKitPrice {
+    font-size: 16px;
+  }
+
+  .totalHeading h2 {
+    font-size: 18px;
+  }
+
+  .bigTotal {
+    font-size: 25px;
+  }
+
+  .actions {
+    grid-template-columns:
+      105px
+      1fr;
+
+    gap: 8px;
+  }
+
+  .backButton,
+  .payButton {
+    min-height: 51px;
+
+    font-size: 11px;
+  }
+
+  .payButton {
+    padding: 8px 10px;
+  }
+
+  .applePayBadge {
+    min-width: 60px;
+
+    height: 25px;
+  }
+
+}
+
+/* =========================
+   SQUARE SECURE PAYMENTS
+========================= */
+
+.paymentError {
+  margin: 8px 0 12px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.serviceAddressReview {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid #d7d7d7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.serviceAddressLabel {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.serviceAddressReview strong {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.serviceAddressReview small {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.appleLogo {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 17px;
+  line-height: 1;
+  margin-right: 3px;
+}
+
+.applePayButton {
+  width: min(100%, 420px);
+  min-height: 48px;
+  margin: 12px auto 0;
+  border: 0;
+  border-radius: 7px;
+  background: #000;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.applePayButton span {
+  font-size: 23px;
+  line-height: 1;
+}
+
+.applePayButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.squareWalletContainer {
+  width: min(100%, 420px);
+  min-height: 48px;
+  margin: 12px auto 0;
+}
+
+@media (max-width: 700px) {
+  .serviceAddressReview {
+    padding: 11px 12px;
+  }
+}
+
+
+/* =========================
+   SQUARE SECURE CARD
+========================= */
+
+.squareCardShell {
+  width: 100%;
+  margin: 8px 0 14px;
+  padding: 12px;
+  overflow: visible;
+  border: 1px solid #d7dce1;
+  border-radius: 8px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.squareCardContainer {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 90px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  visibility: visible;
+  opacity: 1;
+}
+
+.squareCardContainer iframe {
+  display: block !important;
+  width: 100% !important;
+  min-height: 70px !important;
+  height: 70px !important;
+  border: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.squareLoading {
+  margin: 8px 0 0;
+  color: #5b6570;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+  .squareCardShell {
+    padding: 10px;
+  }
+
+  .squareCardContainer {
+    min-height: 96px;
+  }
+
+  .squareCardContainer iframe {
+    min-height: 76px !important;
+    height: 76px !important;
+  }
+}

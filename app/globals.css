@@ -1,0 +1,624 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Bodoni+Moda:wght@400;600&display=swap');
+:root{--oi-black:#070604;--oi-ivory:#F7F1E7;--oi-gold:#D0AB67;--oi-cream:#EDE3D3;--oi-espresso:#2A1D13;--oi-taupe:#A99883;--oi-white:#FFF}
+*{box-sizing:border-box;margin:0;padding:0}html,body{width:100%;height:100%;background:var(--oi-black)}body{font-family:'Montserrat',sans-serif;font-weight:300;color:var(--oi-ivory);-webkit-font-smoothing:antialiased;min-height:100dvh;overflow:hidden}
+.app{width:100%;max-width:480px;height:100dvh;margin:auto;position:relative;overflow:hidden;background:var(--oi-black)}
+@media(min-width:481px) and (max-width:768px){.app{max-width:680px}}@media(min-width:769px){.app{max-width:480px}}
+
+/* HERO */
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,6,4,.62),rgba(7,6,4,.12) 22%,rgba(7,6,4,.06) 48%,rgba(7,6,4,.5) 76%,rgba(7,6,4,.88))}
+.hero{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:space-between;padding:18px 20px 14px}.top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.logo img{width:min(46vw,205px);height:auto;display:block}.top-note{text-align:right;display:flex;gap:8px}.top-note p{font-size:9px;line-height:1.5;letter-spacing:.12em;text-transform:uppercase}.top-note .rule{width:1px;height:48px;background:var(--oi-gold)}
+.headline-block{margin-top:8px;max-width:235px}.eyebrow{font-family:'Bodoni Moda',serif;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase}h1{font-family:'Bodoni Moda',serif;font-weight:400;text-transform:uppercase;font-size:clamp(42px,12vw,58px);line-height:.88;background:linear-gradient(180deg,var(--oi-ivory),var(--oi-gold) 55%);-webkit-background-clip:text;background-clip:text;color:transparent;margin:2px 0}.experience{font-family:'Bodoni Moda',serif;text-transform:uppercase;font-size:clamp(19px,5.7vw,26px);line-height:1}.divider{width:56px;height:2px;background:var(--oi-gold);margin:10px 0 9px}.sub{font-size:11px;letter-spacing:.06em;color:var(--oi-cream);text-transform:uppercase;line-height:1.4}
+.features{display:flex;flex-direction:column;gap:8px;margin:12px 0 10px}.feature{display:flex;align-items:center;gap:11px}.feature img{width:38px;height:38px;object-fit:contain}.feature span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--oi-cream)}
+.cta{display:flex;align-items:center;justify-content:center;gap:14px;width:100%;padding:12px 20px;transform:none;border-radius:999px;background:rgba(7,6,4,.92);border:1px solid var(--oi-gold);box-shadow:0 8px 30px rgba(0,0,0,.6);color:#fff;font-family:inherit;cursor:pointer}.cta-text{text-align:left}.cta-text .main{display:block;font-size:15px;letter-spacing:.14em}.cta-text .sub{display:block;font-size:9px;letter-spacing:.14em;color:var(--oi-taupe);margin-top:2px}.cta .rule{width:1px;height:24px;background:rgba(247,241,231,.35)}.cta svg{width:18px;height:18px}
+.strip{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;text-align:center}.strip p{font-size:9px;letter-spacing:.06em;line-height:1.4;text-transform:uppercase}.strip .rule{width:1px;height:24px;background:rgba(247,241,231,.3)}.footer-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:10px}.script img{width:min(29vw,125px)}.footer-right{text-align:right}.footer-right p{font-size:8px;letter-spacing:.1em;line-height:1.5;text-transform:uppercase}.footer-right .rule{height:1px;background:var(--oi-gold);margin-top:6px}
+
+/* STEP 1 */
+.step1{position:absolute;inset:0;z-index:2;overflow-y:auto;overflow-x:hidden;background:var(--oi-black);-webkit-overflow-scrolling:touch}.step1-bg{position:relative;background:var(--oi-ivory);min-height:100%}.step1-photo{position:absolute;top:0;left:0;width:100%;height:560px;object-fit:cover;object-position:center top;display:block}.step1-inner{position:relative;z-index:1;padding:0 16px 18px}
+
+/* logo is intentionally pinned to the far upper-left */
+.step1-logo{position:absolute;top:14px;left:10px;width:158px;height:auto;z-index:5;display:block;filter:none!important}.step1-note{position:absolute;top:18px;right:10px;z-index:5;display:flex;align-items:flex-start;gap:8px;text-align:right}.step1-note p{font-size:8.5px;line-height:1.45;letter-spacing:.13em;text-transform:uppercase;color:var(--oi-espresso)}.step1-note span{width:1px;height:48px;background:var(--oi-gold)}
+
+/* choices/progress moved up directly beneath the logo */
+.step-indicator{position:relative;padding-top:118px;display:flex;align-items:flex-start;gap:2px}.step-dot-wrap{position:relative;display:flex;flex:1;flex-direction:column;align-items:center;gap:5px}.step-dot-wrap:not(:last-child)::after{content:"";position:absolute;top:13px;left:64%;width:72%;height:1px;background:var(--oi-gold);z-index:-1}.step-dot{width:27px;height:27px;border-radius:50%;border:1.4px solid var(--oi-espresso);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:400;color:var(--oi-espresso);background:rgba(247,241,231,.55)}.step-dot.active{background:var(--oi-black);border-color:var(--oi-black);color:var(--oi-ivory)}.step-dot-label{font-size:7px;letter-spacing:.02em;text-transform:uppercase;color:var(--oi-espresso);text-align:center;line-height:1.15;white-space:normal}
+
+/* extracted white-shade asset sits ONLY behind the copy */
+.step1-copy{position:relative;margin:10px -16px 0;padding:10px 16px 14px;isolation:isolate}.step1-copy::before{content:"";position:absolute;z-index:-1;inset:-18px -35px -20px -35px;background:url('/white-shade.png') left center/100% 100% no-repeat;pointer-events:none}.step-count{display:flex;align-items:center;gap:8px}.step-count span{font-size:10px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--oi-espresso)}.step-count .rule{width:28px;height:1px;background:var(--oi-gold)}
+.step1-title{font-family:'Bodoni Moda',serif;font-weight:600;font-size:clamp(32px,9.5vw,43px);line-height:.94;text-transform:uppercase;color:var(--oi-black);margin-top:7px}.step1-subtitle{font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--oi-espresso);margin-top:7px}.step1-desc{font-size:11px;line-height:1.45;color:var(--oi-espresso);margin-top:7px;max-width:330px}
+
+/* lash choices pulled upward */
+.lash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:0}.lash-card{background:var(--oi-ivory);border-radius:14px;overflow:hidden;border:1.5px solid var(--oi-gold);box-shadow:0 6px 18px rgba(0,0,0,.12);display:flex;flex-direction:column;cursor:pointer}.lash-card.selected{box-shadow:0 0 0 2px rgba(208,171,103,.45),0 6px 18px rgba(0,0,0,.12)}.lash-photo{width:100%;aspect-ratio:1.35/1;object-fit:cover;display:block}.lash-card-body{padding:9px 10px 10px;display:flex;flex-direction:column;gap:5px;flex:1}.lash-card-title{font-family:'Bodoni Moda',serif;font-weight:600;font-size:14px;text-transform:uppercase;color:var(--oi-black);display:flex;align-items:center;gap:7px;white-space:nowrap}.lash-card-title .rule{flex:1;height:1px;background:var(--oi-gold)}.lash-card-tag{font-size:7px;letter-spacing:.08em;text-transform:uppercase;color:var(--oi-taupe)}.lash-card-desc{font-size:9.5px;line-height:1.38;color:var(--oi-espresso);flex:1}.lash-card-btn{margin-top:5px;width:100%;padding:9px 7px;border-radius:999px;background:var(--oi-black);color:var(--oi-ivory);border:1px solid var(--oi-gold);font-family:inherit;font-size:9px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}.lash-card.selected .lash-card-btn{background:var(--oi-gold);color:var(--oi-black)}
+
+.step1-nav{display:grid;grid-template-columns:45px 1fr 48px;align-items:center;gap:8px;margin-top:14px}.step1-back{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0}.step1-back .circle{width:34px;height:34px;border-radius:50%;border:1px solid var(--oi-gold);display:flex;align-items:center;justify-content:center;color:var(--oi-espresso)}.step1-back svg{width:17px;height:17px}.step1-back>span:last-child{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--oi-espresso)}.step1-continue{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 8px;border-radius:999px;background:var(--oi-black);color:var(--oi-ivory);border:1px solid var(--oi-gold);font-family:inherit;font-size:9px;letter-spacing:.1em;text-transform:uppercase}.step1-continue:disabled{opacity:.4}.step1-continue svg{width:15px;height:15px}.step1-beyond{text-align:right}.step1-beyond p{font-size:6.5px;letter-spacing:.06em;line-height:1.45;text-transform:uppercase;color:var(--oi-espresso)}.step1-beyond .rule{height:1px;background:var(--oi-gold);margin-top:4px}
+
+.step1-strip{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:14px 10px;background:var(--oi-black)}.step1-strip-item{display:flex;align-items:center;gap:6px;flex:1;min-width:0}.step1-strip-item img{width:27px;height:27px;object-fit:contain}.step1-strip-item span{font-size:6.5px;letter-spacing:.05em;line-height:1.25;text-transform:uppercase;color:var(--oi-cream)}.step1-strip-rule{width:1px;height:25px;background:rgba(247,241,231,.25)}
+
+@media(max-width:360px){.step1-logo{width:145px}.step-indicator{padding-top:110px}.step1-title{font-size:32px}.lash-card-desc{font-size:8.7px}.step1-inner{padding-left:12px;padding-right:12px}.step1-copy{margin-left:-12px;margin-right:-12px;padding-left:12px;padding-right:12px}}
+@media(max-height:750px){.step1-logo{top:9px;width:145px}.step1-note{top:12px}.step1-script{top:88px}.step-indicator{padding-top:100px}.step1-copy{margin-top:7px;padding-top:7px;padding-bottom:10px}.step1-title{font-size:34px}.step1-desc{font-size:10px}.lash-photo{aspect-ratio:1.5/1}.lash-card-desc{font-size:8.8px}.step1-nav{margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.cta{transition:none}}
+
+
+/* STEP 1 — ONLY REQUESTED CHANGES */
+.step1-inner > .top-row > .logo{
+  position:relative;
+  left:-30px;
+  z-index:6;
+}
+.step1-inner > .top-row > .logo img{
+  width:225px;
+  max-width:none;
+  height:auto;
+  display:block;
+}
+
+/* Soft white shadow behind CHOOSE YOUR LASH SET only */
+.step1-title{
+  position:relative;
+  z-index:1;
+  width:max-content;
+  max-width:100%;
+}
+.step1-title::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-28px;
+  top:-14px;
+  width:340px;
+  height:110px;
+  background:radial-gradient(
+    ellipse at 38% 50%,
+    rgba(255,255,255,.96) 0%,
+    rgba(255,255,255,.84) 40%,
+    rgba(247,241,231,.48) 65%,
+    rgba(247,241,231,0) 86%
+  );
+  filter:blur(9px);
+  pointer-events:none;
+}
+
+
+/* STEP 1 — extend white shade behind subtitle + description */
+.step1-subtitle,
+.step1-desc{
+  position:relative;
+  z-index:1;
+}
+
+.step1-subtitle::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:-28px;
+  top:-18px;
+  width:365px;
+  height:92px;
+  background:radial-gradient(
+    ellipse at 38% 42%,
+    rgba(255,255,255,.98) 0%,
+    rgba(255,255,255,.90) 38%,
+    rgba(247,241,231,.62) 62%,
+    rgba(247,241,231,.20) 78%,
+    rgba(247,241,231,0) 90%
+  );
+  filter:blur(9px);
+  pointer-events:none;
+}
+
+/* STEP 1 — progress labels gold */
+.step1 .step-dot-label{
+  color:var(--oi-gold);
+  font-weight:400;
+}
+
+
+/* STEP 1 — make progress labels bold with black outline */
+.step1 .step-dot-label{
+  color:var(--oi-gold);
+  font-weight:700;
+  -webkit-text-stroke:0.35px var(--oi-black);
+  text-shadow:
+    -0.35px -0.35px 0 var(--oi-black),
+     0.35px -0.35px 0 var(--oi-black),
+    -0.35px  0.35px 0 var(--oi-black),
+     0.35px  0.35px 0 var(--oi-black);
+}
+
+/* STEP 1 — bold Step 1 of 5 */
+.step1 .step-count span{
+  font-weight:700;
+}
+
+
+/* STEP 1 — Contact Info: bold gold text */
+.step1 .step-dot-wrap:nth-child(3) .step-dot-label{
+  color:var(--oi-gold);
+  font-weight:700;
+}
+
+
+/* FINAL OVERRIDE — CONTACT INFO */
+.step1 .step-indicator .step-dot-wrap:nth-of-type(3) .step-dot-label{
+  color:#D0AB67 !important;
+  font-weight:700 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+
+
+/* STEP 1 — clean luxury footer, replacing image icons */
+.step1-luxury-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  flex:1;
+  min-width:0;
+}
+.step1-luxury-mark{
+  width:30px;
+  height:30px;
+  flex:0 0 30px;
+  border:1px solid var(--oi-gold);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Bodoni Moda',serif;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--oi-gold);
+}
+.step1-luxury-item > span:last-child{
+  font-size:6.5px;
+  font-weight:400;
+  letter-spacing:.06em;
+  line-height:1.3;
+  text-transform:uppercase;
+  color:var(--oi-cream);
+}
+
+
+/* Distinct footer marks */
+.step1-luxury-mark.premium-mark{
+  font-size:13px;
+}
+.step1-luxury-mark.feather-mark{
+  font-family:Georgia,serif;
+  font-size:19px;
+  font-weight:400;
+  transform:rotate(-20deg);
+}
+
+/* STEP 2 — DATE & TIME */
+.step2{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background:#f7f1e7;
+  color:var(--oi-espresso);
+  -webkit-overflow-scrolling:touch;
+}
+.step2-inner{
+  min-height:100%;
+  padding:0 16px 24px;
+  background:linear-gradient(180deg,#fbf8f2 0%,#f7f1e7 58%,#efe4d5 100%);
+}
+.step2-brand{
+  height:94px;
+  position:relative;
+}
+.step2-brand img{
+  position:absolute;
+  top:8px;
+  left:-30px;
+  width:225px;
+  max-width:none;
+  height:auto;
+  display:block;
+}
+.step2-progress{
+  display:flex;
+  align-items:flex-start;
+  gap:2px;
+}
+.step2-progress .step-dot-wrap{
+  position:relative;
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+}
+.step2-progress .step-dot-wrap:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:13px;
+  left:64%;
+  width:72%;
+  height:1px;
+  background:var(--oi-gold);
+  z-index:0;
+}
+.step2-progress .step-dot{
+  position:relative;
+  z-index:1;
+  width:27px;
+  height:27px;
+  border-radius:50%;
+  border:1px solid var(--oi-espresso);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fbf8f2;
+  color:var(--oi-espresso);
+  font-size:11px;
+  font-weight:400;
+}
+.step2-progress .step-dot.active{
+  background:var(--oi-black);
+  border-color:var(--oi-black);
+  color:var(--oi-ivory);
+}
+.step2-progress .step-dot-label{
+  color:var(--oi-espresso);
+  font-size:7px;
+  font-weight:300;
+  letter-spacing:.02em;
+  line-height:1.15;
+  text-align:center;
+  text-transform:uppercase;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.step2-heading{
+  margin-top:18px;
+}
+.step2-heading .step-count span{
+  font-weight:400;
+}
+.step2-heading h2{
+  margin-top:7px;
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(34px,9.5vw,44px);
+  font-weight:600;
+  line-height:.94;
+  text-transform:uppercase;
+  color:var(--oi-black);
+}
+.step2-heading>p{
+  margin-top:8px;
+  font-size:10px;
+  line-height:1.45;
+  color:var(--oi-espresso);
+}
+.step2-selected{
+  display:grid;
+  grid-template-columns:76px 1fr;
+  gap:12px;
+  align-items:center;
+  margin-top:14px;
+  padding:9px;
+  background:#fffaf4;
+  border:1px solid var(--oi-gold);
+  border-radius:14px;
+}
+.step2-selected img{
+  width:76px;
+  height:62px;
+  object-fit:cover;
+  border-radius:9px;
+}
+.step2-selected-copy span{
+  display:block;
+  color:var(--oi-gold);
+  font-size:7px;
+  font-weight:400;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.step2-selected-copy strong{
+  display:block;
+  margin-top:2px;
+  font-family:'Bodoni Moda',serif;
+  font-size:17px;
+  font-weight:600;
+  text-transform:uppercase;
+  color:var(--oi-black);
+}
+.step2-selected-copy button{
+  margin-top:3px;
+  padding:0;
+  border:0;
+  background:none;
+  color:var(--oi-espresso);
+  font-family:inherit;
+  font-size:8px;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.step2-calendar,.step2-times{
+  margin-top:12px;
+  padding:14px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(208,171,103,.8);
+  border-radius:15px;
+}
+.step2-section-head span{
+  display:block;
+  color:var(--oi-gold);
+  font-size:7px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.step2-section-head strong{
+  display:block;
+  margin-top:2px;
+  color:var(--oi-black);
+  font-family:'Bodoni Moda',serif;
+  font-size:20px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.weekday-row,.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:5px;
+}
+.weekday-row{
+  margin:13px 0 7px;
+}
+.weekday-row span{
+  text-align:center;
+  color:var(--oi-taupe);
+  font-size:6.5px;
+  font-weight:400;
+}
+.calendar-day{
+  aspect-ratio:1;
+  border:1px solid transparent;
+  border-radius:50%;
+  background:transparent;
+  color:var(--oi-espresso);
+  font-family:inherit;
+  font-size:10px;
+}
+.calendar-day:not(:disabled){
+  border-color:var(--oi-gold);
+  background:#fffaf4;
+  cursor:pointer;
+}
+.calendar-day:disabled{
+  opacity:.24;
+  text-decoration:line-through;
+}
+.calendar-day.selected{
+  border-color:var(--oi-black);
+  background:var(--oi-black);
+  color:var(--oi-ivory);
+}
+.time-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin-top:12px;
+}
+.time-option{
+  padding:10px 6px;
+  border:1px solid var(--oi-gold);
+  border-radius:999px;
+  background:#fffaf4;
+  color:var(--oi-espresso);
+  font-family:inherit;
+  font-size:9px;
+  cursor:pointer;
+}
+.time-option.selected{
+  background:var(--oi-black);
+  color:var(--oi-ivory);
+}
+.step2-time-empty{
+  margin-top:10px;
+  padding:12px 4px 3px;
+  color:var(--oi-taupe);
+  font-size:9px;
+}
+.step2-booking-summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:12px;
+  overflow:hidden;
+  border:1px solid var(--oi-gold);
+  border-radius:13px;
+  background:var(--oi-gold);
+  gap:1px;
+}
+.step2-booking-summary>div{
+  padding:9px 5px;
+  background:#fffaf4;
+  text-align:center;
+}
+.step2-booking-summary span{
+  display:block;
+  color:var(--oi-gold);
+  font-size:6.5px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.step2-booking-summary strong{
+  display:block;
+  margin-top:3px;
+  color:var(--oi-espresso);
+  font-size:8px;
+  font-weight:400;
+}
+.step2-continue{
+  width:100%;
+  min-height:44px;
+  margin-top:12px;
+  border:1px solid var(--oi-gold);
+  border-radius:999px;
+  background:var(--oi-black);
+  color:var(--oi-ivory);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-family:inherit;
+  font-size:9px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.step2-continue svg{
+  width:16px;
+  height:16px;
+}
+.step2-continue:disabled{
+  opacity:.38;
+}
+@media(max-width:360px){
+  .step2-brand{height:88px}
+  .step2-brand img{left:-28px;width:205px}
+}
+
+
+/* STEP 2 — HEADER POSITION FIX FROM PHONE TEST */
+.step2-brand{
+  height:118px;
+  position:relative;
+  overflow:visible;
+}
+
+/* Override global .logo sizing: keep the dark logo contained in its own header */
+.step2-brand img{
+  position:absolute !important;
+  top:18px !important;
+  left:-4px !important;
+  width:168px !important;
+  max-width:168px !important;
+  height:auto !important;
+  display:block !important;
+  object-fit:contain;
+}
+
+/* Progress sits on its own row BELOW the logo */
+.step2-progress{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding-top:0;
+  margin-top:0;
+  display:flex;
+  align-items:flex-start;
+  gap:2px;
+}
+
+/* Keep labels clean, regular-weight, and readable */
+.step2-progress .step-dot-label{
+  color:var(--oi-espresso) !important;
+  font-weight:300 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+  white-space:normal;
+}
+
+/* Heading begins below progress instead of colliding with it */
+.step2-heading{
+  margin-top:24px !important;
+}
+
+@media(max-width:360px){
+  .step2-brand{
+    height:110px;
+  }
+  .step2-brand img{
+    top:16px !important;
+    left:-4px !important;
+    width:158px !important;
+    max-width:158px !important;
+  }
+  .step2-heading{
+    margin-top:22px !important;
+  }
+}
+
+/* =========================================================
+   SCREEN 3 / STEP 2 — FULL TOP BANNER
+   ========================================================= */
+.step2-book-banner{
+  position:relative;
+  z-index:6;
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:var(--oi-ivory);
+}
+
+.step2-book-banner img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0;
+  padding:0;
+  object-fit:cover;
+  object-position:center center;
+}
+
+/* Screen 3: remove the old dark Orisha logo completely. */
+.step2 .step2-logo{
+  display:none !important;
+}
+
+/* Start Screen 3 controls directly beneath the full-width banner. */
+.step2 .step2-progress{
+  margin-top:14px;
+}
+
+/* =========================================================
+   CONTINUE BUTTONS — CONSISTENT CLICK / PRESSED FEEDBACK
+   ========================================================= */
+
+/* Step 1: Continue To Date & Time */
+.step1-continue:not(:disabled) {
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    background-color 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.step1-continue:not(:disabled):active {
+  transform: scale(0.97);
+  background: var(--oi-gold);
+  color: var(--oi-black);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.18);
+}
+
+/* Step 2: Continue To Contact Info */
+.step2-continue:not(:disabled) {
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    background-color 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.step2-continue:not(:disabled):active {
+  transform: scale(0.97);
+  background: var(--oi-gold);
+  color: var(--oi-black);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,.18);
+}
+
+/* Keep keyboard interaction visible too */
+.step1-continue:not(:disabled):focus-visible,
+.step2-continue:not(:disabled):focus-visible {
+  outline: 2px solid var(--oi-gold);
+  outline-offset: 3px;
+}
+
