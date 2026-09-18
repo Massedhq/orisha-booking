@@ -154,7 +154,7 @@ export default function PaymentScreen({
       const script = document.createElement('script');
       script.id = 'square-web-payments-sdk';
       script.src =
-        'https://sandbox.web.squarecdn.com/v1/square.js';
+        'https://web.squarecdn.com/v1/square.js';
       script.async = true;
 
       await new Promise<void>((resolve, reject) => {
