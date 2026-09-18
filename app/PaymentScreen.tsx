@@ -336,7 +336,6 @@ export default function PaymentScreen({
             amount: total.toFixed(2),
             label: 'Orisha Infinity',
           },
-          locationId,
         });
 
       try {
@@ -410,7 +409,6 @@ export default function PaymentScreen({
                   window.location.href,
                 referenceId:
                   crypto.randomUUID(),
-                locationId,
               }
             );
 
