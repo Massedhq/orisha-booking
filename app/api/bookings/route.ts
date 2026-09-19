@@ -210,22 +210,32 @@ export async function POST(
       string | null = null;
 
     try {
-      /*
-        IMPORTANT:
-        Do not send locationId in CreatePayment.
+      const squareLocationId =
+        process.env.NEXT_PUBLIC_SQUARE_LOCATION_ID?.trim();
 
-        The Square payment token was created using the
-        Application ID + Location ID in the Web Payments SDK.
-        The server-side CreatePayment call does not need us
-        to resend locationId here.
+      if (!squareLocationId) {
+        console.error(
+          'NEXT_PUBLIC_SQUARE_LOCATION_ID is not configured on the server.'
+        );
 
-        This also removes the location_id field that Square
-        is currently rejecting with INVALID_REQUEST_ERROR.
-      */
+        return NextResponse.json(
+          {
+            error:
+              'Payment configuration is missing. Your booking has not been confirmed.',
+          },
+          {
+            status: 500,
+          }
+        );
+      }
+
       const paymentResponse =
         await square.payments.create({
           sourceId,
           idempotencyKey,
+
+          locationId:
+            squareLocationId,
 
           amountMoney: {
             amount:

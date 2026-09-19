@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './PaymentScreen.module.css';
 
-type PaymentMethod = 'card' | 'apple' | 'google' | 'cashapp';
+type PaymentMethod = 'card' | 'apple' | 'google';
 type LocationType = 'studio' | 'travel';
 
 export type PaymentResult = {
@@ -60,11 +60,9 @@ export default function PaymentScreen({
   const squareCardRef = useRef<any>(null);
   const squareApplePayRef = useRef<any>(null);
   const squareGooglePayRef = useRef<any>(null);
-  const squareCashAppRef = useRef<any>(null);
 
   const [applePayReady, setApplePayReady] = useState(false);
   const [googlePayReady, setGooglePayReady] = useState(false);
-  const [cashAppReady, setCashAppReady] = useState(false);
 
   const [address, setAddress] = useState('');
   const [apartment, setApartment] = useState('');
@@ -73,17 +71,6 @@ export default function PaymentScreen({
   const [zip, setZip] = useState('');
 
   const [agreement, setAgreement] = useState(false);
-
-  const agreementRef = useRef(false);
-  const processingRef = useRef(false);
-
-  useEffect(() => {
-    agreementRef.current = agreement;
-  }, [agreement]);
-
-  useEffect(() => {
-    processingRef.current = isProcessing;
-  }, [isProcessing]);
 
   /* =========================
      PRICING
@@ -388,106 +375,6 @@ export default function PaymentScreen({
           setGooglePayReady(true);
           return;
         }
-
-        if (paymentMethod === 'cashapp') {
-          setCashAppReady(false);
-
-          const target =
-            document.getElementById(
-              'square-cash-app-container'
-            );
-
-          if (!target) return;
-
-          target.innerHTML = '';
-
-          const cashAppPay =
-            await payments.cashAppPay(
-              paymentRequest,
-              {
-                redirectURL:
-                  window.location.href,
-                referenceId:
-                  crypto.randomUUID(),
-              }
-            );
-
-          localWallet = cashAppPay;
-
-          cashAppPay.addEventListener(
-            'ontokenization',
-            async (event: any) => {
-              if (cancelled) return;
-
-              const tokenResult =
-                event?.detail?.tokenResult;
-
-              if (!agreementRef.current) {
-                setPaymentError(
-                  'Please accept the non-refundable booking fee agreement before paying.'
-                );
-                return;
-              }
-
-              if (processingRef.current) {
-                return;
-              }
-
-              if (
-                tokenResult?.status !== 'OK' ||
-                !tokenResult?.token
-              ) {
-                console.error(
-                  'Cash App tokenization failed:',
-                  tokenResult
-                );
-
-                setPaymentError(
-                  tokenResult?.errors?.[0]?.message ||
-                    'Cash App payment information could not be verified.'
-                );
-                return;
-              }
-
-              try {
-                processingRef.current = true;
-                setIsProcessing(true);
-                setPaymentError('');
-
-                await submitSquareToken(
-                  tokenResult.token
-                );
-              } catch (error) {
-                console.error(
-                  'Cash App payment failed:',
-                  error
-                );
-
-                setPaymentError(
-                  error instanceof Error
-                    ? error.message
-                    : 'Unable to complete Cash App payment.'
-                );
-              } finally {
-                processingRef.current = false;
-                setIsProcessing(false);
-              }
-            }
-          );
-
-          await cashAppPay.attach(
-            '#square-cash-app-container'
-          );
-
-          if (cancelled) {
-            await cashAppPay.destroy?.();
-            return;
-          }
-
-          squareCashAppRef.current =
-            cashAppPay;
-          setCashAppReady(true);
-        }
       } catch (error) {
         if (cancelled) return;
 
@@ -499,11 +386,6 @@ export default function PaymentScreen({
         if (paymentMethod === 'google') {
           squareGooglePayRef.current = null;
           setGooglePayReady(false);
-        }
-
-        if (paymentMethod === 'cashapp') {
-          squareCashAppRef.current = null;
-          setCashAppReady(false);
         }
 
         console.warn(
@@ -535,14 +417,6 @@ export default function PaymentScreen({
       }
 
       if (
-        paymentMethod === 'cashapp' &&
-        squareCashAppRef.current ===
-          localWallet
-      ) {
-        squareCashAppRef.current = null;
-      }
-
-      if (
         paymentMethod !== 'apple'
       ) {
         localWallet?.destroy?.();
@@ -570,15 +444,12 @@ export default function PaymentScreen({
       ? squareReady && billingFormComplete
       : paymentMethod === 'apple'
         ? applePayReady
-        : paymentMethod === 'google'
-          ? googlePayReady
-          : cashAppReady;
+        : googlePayReady;
 
   const canPay =
     agreement &&
     !isProcessing &&
-    selectedPaymentReady &&
-    paymentMethod !== 'cashapp';
+    selectedPaymentReady;
 
   function getVerificationDetails() {
     const enteredName =
@@ -695,9 +566,7 @@ export default function PaymentScreen({
           ? squareCardRef.current
           : paymentMethod === 'apple'
             ? squareApplePayRef.current
-            : paymentMethod === 'google'
-              ? squareGooglePayRef.current
-              : squareCashAppRef.current;
+            : squareGooglePayRef.current;
 
       if (!paymentMethodObject) {
         throw new Error(
@@ -1023,31 +892,6 @@ export default function PaymentScreen({
             </button>
 
 
-            {/* CASH APP */}
-
-            <button
-              type="button"
-              className={
-                paymentMethod === 'cashapp'
-                  ? styles.paymentSelected
-                  : ''
-              }
-              onClick={() =>
-                setPaymentMethod('cashapp')
-              }
-            >
-
-              <span className={styles.cashAppIcon}>
-                $
-              </span>
-
-              <strong>
-                Cash App
-              </strong>
-
-            </button>
-
-
           </div>
 
         </section>
@@ -1311,26 +1155,6 @@ export default function PaymentScreen({
                 {!googlePayReady && (
                   <p>
                     Google Pay is not available
-                    on this device or browser.
-                  </p>
-                )}
-              </>
-            )}
-
-            {paymentMethod === 'cashapp' && (
-              <>
-                <div className={styles.walletBrand}>
-                  Cash App
-                </div>
-
-                <div
-                  id="square-cash-app-container"
-                  className={styles.squareWalletContainer}
-                />
-
-                {!cashAppReady && (
-                  <p>
-                    Cash App Pay is not available
                     on this device or browser.
                   </p>
                 )}
